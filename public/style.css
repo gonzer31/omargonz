@@ -4,8 +4,8 @@
 }
 
 body {
-    /* background: radial-gradient(circle at top right, #113631 0%, #113631 37%, #153E39 54%, #1A4B45 74%, #215852 92%, #27665F 100%); */
-    background-color: #FFEFD9
+    background-color: #FFEFD9;
+    overflow: hidden;
 }
 
 .courses {
