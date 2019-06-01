@@ -188,6 +188,9 @@
             tabcontent[i].style.display = "none";
         }
         document.getElementById(section).style.display = "block";
+        if (section == "experience") {
+            document.getElementById(section).style.overflow = "scroll";
+        }
     }
 </script>
 </html>
