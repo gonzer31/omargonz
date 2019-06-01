@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "Rikos";
+    src: url(fonts/rikos.woff);
+}
+
+body {
+    /* background: radial-gradient(circle at top right, #113631 0%, #113631 37%, #153E39 54%, #1A4B45 74%, #215852 92%, #27665F 100%); */
+    background-color: #FFEFD9
+}
+
+.courses {
+    display: inline-block;
+}
+
+.description {
+    color: #BFCCB8;
+}
+
+.label {
+    color: #769BB3;
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    color: #FFFFFF;
+}
+
+.open-button {
+    border: solid;
+    border-width: 1;
+    border-radius: 50%;
+    border-color: #FFFFFF;
+    background: transparent;
+    height: 36px;
+    width: 36px;
+    position: relative;
+}
+
+.rikos {
+    font-family: 'Rikos';
+}
+
+.rotate{
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    transform: translate(-50%, -50%);
+}
+
+.rotate.down{
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
+    transform-origin: center center;
+}
+
+.selected-label {
+    color: #FFFFFF;
+}
+
+.tabcontent {
+    background-color: #FFFFFF;
+    flex-grow: 1;
+    display: none;
+    /* color: white; */
+    color: #808080;
+    font-family: 'Nanum Gothic Coding', monospace;
+    /* border: solid; */
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+    border-width: 1;
+    border-color: #808080;
+    /* border-radius: 20pt; */
+    border-top-right-radius: 20pt;
+    border-top-left-radius: 20pt;
+    margin-bottom: 44px;
+    overflow: scroll;
+}
+
+#bottomMenu {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 0px;
+    transition: height 0.3s;
+}
+
+#chosen {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    background-color: #8FB399
+}
+
+#content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 1.5rem;
+}
+
+#footer {
+    border: solid;
+    border-width: 1;
+    border-top-width: 0;
+    border-color:#808080;
+    overflow: hidden;
+    border-bottom-left-radius: 20pt;
+    border-bottom-right-radius: 20pt;
+    margin-bottom: 1.5rem;
+}
+
+#pos1 {
+    width: 120px;
+}
+
+#pos2 {
+    padding-left: 16px;
+}

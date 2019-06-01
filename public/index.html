@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>omargonz.com</title>
+</head>
+<body>
+    <div id="content-container" class="ph4">
+        <div class="tr" style="padding-top: 1.5rem; padding-bottom: 1.5rem">
+            <span class="f5 rikos" style="color: #808080">
+                OMAR GONZALEZ
+            </span>
+        </div>
+
+        <!-- Tab content -->
+        <div id="about" class="tabcontent ph3">
+            <p class="pt4 ma0 lh-copy">
+                I'm a software engineer living in Houston, TX.
+                I'm currently a product developer at Onit.
+                I graduated from MIT with a B.S. in Computer Science in 2018. 
+                On my free time I like to build custom web/mobile applications.
+            </p>
+            <p class="pt2 ma0 description">
+                Contact me if you're interested in software services.
+            </p>
+        </div>
+        
+        <div id="experience" class="tabcontent ph3">
+            <p class="pt4 ma0">
+                WORK EXPERIENCE
+            </p>
+            <p class="pt3 ma0">
+                Onit - Product Developer
+            </p>
+            <p class="pt2 ma0 description">
+                Mongo, PostgreSQL, Ruby on Rails, Node, React - Houston - Current (10 mos.)
+            </p>
+            <p class="pt3 ma0">
+                Base Operations - Mobile Developer
+            </p>
+            <p class="pt2 ma0 description">
+                React Native - Austin - Summer 2018
+            </p>
+            <p class="pt3 ma0">
+                Konfío - Full Stack Engineer
+            </p>
+            <p class="pt2 ma0 description">
+                AWS, PHP, React - Mexico City - Jan 2018
+            </p>
+            <p class="pt3 ma0">
+                Goldman Sachs - Software Engineer
+            </p>
+            <p class="pt2 ma0 description">
+                Angular - New York City - Summer 2017
+            </p>
+            <p class="pt4 ma0">
+                PERSONAL PROJECTS
+            </p>
+            <p class="pt3 ma0">
+                RGV Elite
+            </p>
+            <p class="pt2 ma0 description">
+                Firebase, React - <a target="_blank" href = "https://github.com/omarglz/rgvelite">Github Repo</a>
+            </p>
+            <p class="pt3 ma0">
+                Demolition
+            </p>
+            <p class="pt2 ma0 description">
+                Firebase, Bluetooth, GPS, Swift (iOS)
+            </p>
+            <p class="pv4 ma0">
+                Contact me for more details.
+            </p>
+        </div>
+
+        <div id="contact" class="tabcontent ph3">
+            <p class="pt4 ma0">
+                Email: <a target="_blank" href = "mailto: gonzalez.omar.jr@gmail.com">gonzalez.omar.jr@gmail.com</a>
+            </p>
+            <p class="pt4 ma0">
+                LinkedIn: <a target="_blank" href="https://www.linkedin.com/in/omar-gonzalez-200a35b4/">https://www.linkedin.com/in/omar-gonzalez-200a35b4/</a>
+            </p>
+        </div>
+    </div>
+    <div class="fixed left-0 right-0 bottom-0 tc">
+        <div id="footer" class="mh4">
+            <!-- chosen section -->
+            <div id="chosen" class="ph3 pv1">
+                <button class="open-button">
+                    <i class="material-icons md-18 rotate">
+                        keyboard_arrow_up
+                    </i>
+                </button>
+                <span id="label-about" class="f5 rikos selected-label">
+                    ABOUT
+                </span>
+            </div>
+
+            <!-- rest of menu -->
+            <div id="bottomMenu" class="ph3">
+                <div id="pos1" class="fl tl pv2">
+                    <span id="label-experience" class="f5 rikos label">
+                        EXPERIENCE
+                    </span>
+                </div>
+                <div id="pos2" class="fl tl pv2">
+                    <span id="label-contact" class="f5 rikos label">
+                        CONTACT
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        openContent("about");
+
+        $(".open-button").click(function() {
+            const mb = $( ".tabcontent" ).css("margin-bottom");
+            const isClosed = (mb == "44px");
+            const isOpen = (mb == "88px");
+            if(isClosed) {
+                $( ".tabcontent" ).animate({ 'marginBottom': '88px' } , 300);
+                $(".rotate").addClass("down");
+                $( "#bottomMenu" ).height(44);
+            }
+            
+            if (isOpen) {
+                $( "#bottomMenu" ).height(0);
+                $( ".tabcontent" ).animate({ 'marginBottom': '44px'}, 300);
+                $(".rotate").removeClass("down");
+            }
+        });
+
+        $("#label-about").click(function () {
+            swapThisWithSelected($(this));
+        });
+        $("#label-experience").click(function () {
+            swapThisWithSelected($(this));
+        });
+        $("#label-contact").click(function () {
+            swapThisWithSelected($(this));
+        });
+    });
+
+    function swapThisWithSelected(current) {
+        const pid = current.parent().attr("id");
+        const isCurrent = pid == "chosen" ? true : false;
+        if (!isCurrent) {
+            const selected = $("#chosen").find("span");
+            const selectedId = selected.attr("id");
+
+            // swap positions with selected
+            var promise1 = eltFadeOut(selected);
+            var promise2 = eltFadeOut(current);
+
+            $.when(promise1, promise2).done(function (v1, v2) {
+                v1.removeClass( "selected-label" ).addClass( "label" );
+                v1.prependTo($(`#${pid}`)).animate({ opacity: 1 }, 250);
+                v2.removeClass( "label" ).addClass( "selected-label" );
+                v2.appendTo($("#chosen")).animate({ opacity: 1 }, 250, () => {
+                    openContent(v2.attr("id").split("-")[1]);
+                });
+            });
+        }
+    }
+
+    function eltFadeOut(elt) {
+        var dfd = new $.Deferred();
+        var toRemove = null;
+        elt.animate({ opacity: 0 }, 500, () => {
+            toRemove = elt.detach();
+            dfd.resolve(toRemove);
+        });
+        return dfd.promise();
+    }
+
+    function openContent(section) {
+        var i, tabcontent;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        document.getElementById(section).style.display = "block";
+    }
+</script>
+</html>
