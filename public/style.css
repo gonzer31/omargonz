@@ -12,11 +12,12 @@ body {
 }
 
 .description {
-    color: #BFCCB8;
+    color: #CCCCCC;
 }
 
 .label {
-    color: #769BB3;
+    color: #357edd;
+    cursor: pointer;
 }
 
 .material-icons.md-18 {
@@ -64,16 +65,13 @@ body {
     background-color: #FFFFFF;
     flex-grow: 1;
     display: none;
-    /* color: white; */
     color: #808080;
     font-family: 'Nanum Gothic Coding', monospace;
-    /* border: solid; */
     border-top: solid;
     border-left: solid;
     border-right: solid;
     border-width: 1;
     border-color: #808080;
-    /* border-radius: 20pt; */
     border-top-right-radius: 20pt;
     border-top-left-radius: 20pt;
     margin-bottom: 44px;
@@ -83,7 +81,6 @@ body {
     background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
     height: 0px;
     transition: height 0.3s;
